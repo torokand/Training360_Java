@@ -1,5 +1,7 @@
 package com.company.trainerapp;
 
+import java.util.Scanner;
+
 public class TrainerMain {
     public static void main(String[] args) {
         Trainer trainer = new Trainer("Big Joe", 1968);
@@ -26,5 +28,17 @@ public class TrainerMain {
 
         anotherTrainer.setName("Jack Doe");
         System.out.println(anotherTrainer.getName());
+
+        System.out.println("What is your name?");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+
+        System.out.println("Year of Birth?");
+        int yearOfBirth = scanner.nextInt();
+
+        Trainer trainer1 = new Trainer(name, yearOfBirth);
+        System.out.println(trainer1.getNameAndYearOfBirth());
+
+        System.out.println("Age: " + trainer1.getAge(2021));
     }
 }
