@@ -17,15 +17,15 @@ public class Investment {
     }
 
     public double getYield(int days) {
-        double yield = 0.0;
-        yield = this.fund * ((interestRate - cost) / 100 / 365);
+        double yield = 0;
+        yield = this.getFund() * this.interestRate / 100.0 * days / 365.0;
         return yield;
     }
 
     public double close(int days) {
         if (active == true) {
             active = false;
-            return (this.getFund() + this.getYield(days));
+            return ((this.getFund() + this.getYield(days)) * 0.997);
         } else {
             return 0;
         }
